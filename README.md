@@ -10,3 +10,7 @@ https://github.com/miguelgrinberg/flasky.
 
 ## Activity 2
 ![eg2-2](eg2-2.png)
+
+## Activity 3
+![a3](a3.png)
+

@@ -9,4 +9,4 @@ https://github.com/miguelgrinberg/flasky.
 ![a1](a1.png)
 
 ## Activity 2
-![a2](.png)
+![eg2-2](eg2-2.png)

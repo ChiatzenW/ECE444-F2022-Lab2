@@ -14,3 +14,10 @@ https://github.com/miguelgrinberg/flasky.
 ## Activity 3
 ![a3](a3.png)
 
+## Activity 4
+![a4](a4.png)
+
+## Activity 5
+![a5](a5.png)
+![a6](a6.png)
+![17](17.png)

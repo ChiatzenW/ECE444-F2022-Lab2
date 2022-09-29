@@ -9,8 +9,7 @@ from wtforms import StringField, SubmitField, EmailField
 from wtforms.validators import Email
 
 app = Flask(__name__)
-WTF_CSRF_ENABLED=False
-WTF_CSRF_CHECK_DEFAULT = False
+app.config['SECRET_KEY'] = 'hard to guess string'
 
 manager = Manager(app)
 bootstrap = Bootstrap(app)

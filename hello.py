@@ -3,34 +3,30 @@ from flask import Flask, render_template
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
+from flask_wtf import FlaskForm
+from flask_wtf.csrf import CSRFProtect
+from wtforms import StringField, SubmitField, EmailField
+from wtforms.validators import Email
 
 app = Flask(__name__)
+WTF_CSRF_ENABLED=False
+WTF_CSRF_CHECK_DEFAULT = False
 
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-
-
-@app.errorhandler(500)
-def internal_server_error(e):
-    return render_template('500.html'), 500
-
-
-@app.route('/')
+class NameForm(FlaskForm):
+    name = StringField('What is your name?')
+    email= EmailField('What is your UofT Email address?', validators=[Email()])
+    submit = SubmitField('Submit')
+    
+csrf=CSRFProtect()
+csrf.exempt(NameForm)
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html',
-                           current_time=datetime.utcnow())
-
-
-@app.route('/user/<name>')
-def user(name):
-    return render_template('user.html', name=name)
-
+                           current_time=datetime.utcnow(), form=NameForm())
 
 if __name__ == '__main__':
     manager.run()
